@@ -2,7 +2,6 @@ const User = require('../models/user');
 const { validationResult } = require('express-validator')
 const jwt = require('jsonwebtoken')
 const expressJwt = require('express-jwt')
-
 const signUp = (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -67,7 +66,6 @@ const signOut = (req, res) => {
 const isSignIn = expressJwt({
     secret: process.env.SECRET,
     userProperty: "auth",
-
 })
 
 const isAuthenticated = (req, res, next) => {

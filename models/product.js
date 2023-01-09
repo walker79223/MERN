@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { buffer } = require('stream/consumers')
 const { ObjectId } = mongoose.Schema
 
 const productSchema = new mongoose.Schema({
