@@ -9,8 +9,8 @@ exports.getCategoryById = (req, res, next, id) => {
         }
         req.category = cate
         next()
-    })
-}
+    });
+};
 
 exports.createCategory = (req, res) => {
     new Category(req.body).save((err, category) => {
@@ -50,8 +50,8 @@ exports.updateCategory = (req, res) => {
 }
 
 exports.deleteCategories = (req, res) => {
-    Category.find({ _id : req.category._id }).remove((err, deletedCategory) => {
-        if(err) return res.status(400).json({ err: "err occured" })
-        res.json({ msg : "Cat delted" })
+    Category.find({ _id: req.category._id }).remove((err, deletedCategory) => {
+        if (err) return res.status(400).json({ err: "err occured" })
+        res.json({ msg: "Cat delted" })
     })
 }

@@ -6,6 +6,7 @@ const port = process.env.PORT || 8000
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/category');
+const productRoutes = require('./routes/product')
 const cookieParser = require('cookie-parser');
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -23,9 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', authRoutes)
 app.use('/api', userRoutes)
 app.use('/api', categoryRoutes)
-app.all("*",  (req, res) => {
+app.use('/api', productRoutes)
+app.all("*", (req, res) => {
     return res.json({
-        err : "This Page Doesnt Exist",
+        err: "This Page Doesnt Exist",
     })
 })
 app.listen(port, () => {
